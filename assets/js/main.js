@@ -1,8 +1,10 @@
-import { login, signout, createUser } from "./robert.js";
+
+//import { login, signout, createUser } from "./robert.js";
 import  Board, {getBoards } from "./apiwrapper.js";
 const user = JSON.parse(localStorage.getItem("user"));
+import { login, signout, createUser } from "./robert/sessions.js";
+import { show } from "./robert/profiles.js";
 
-console.log(user);
 const loginBtn = document.querySelector("#login-btn");
 const createBtn = document.querySelector("#create-btn");
 const signoutBtn = document.querySelector("#sign-out");
