@@ -1,23 +1,23 @@
 import Board from "./apiwrapper.js";
 
 export function createBoard() {
-    //creamos elementos
-    const formContainer = createDivBlack();
-     const form = createForm();
-     formContainer.append(form);
-     document.querySelector("body").append(formContainer);
+  //creamos elementos
+  const formContainer = createDivBlack();
+  const form = createForm();
+  formContainer.append(form);
+  document.querySelector("body").append(formContainer);
 }
 
 function createDivBlack() {
-    const divblack = document.createElement("div");
-    divblack.classList.add("blackcontainer");
-    return divblack
+  const divblack = document.createElement("div");
+  divblack.classList.add("blackcontainer");
+  return divblack;
 }
 
 function createForm() {
-    const form = document.createElement("form");
-    form.classList.add("createboard")
-    form.innerHTML = `
+  const form = document.createElement("form");
+  form.classList.add("createboard");
+  form.innerHTML = `
     <div data-color="blue" class="createboard__titlecontainer board-blue">
     <input type="text" class="createboard__title" placeholder="Board title">
     <div class="createboard__exit">x</div>
@@ -35,36 +35,46 @@ function createForm() {
 </div>
 <button class="createboard__submit">Create Board</button>
     `;
-    form.addEventListener("click", eventDelegateForm);
-    return form;
+  form.addEventListener("click", eventDelegateForm);
+  return form;
 }
 
 function eventDelegateForm(e) {
-    e.preventDefault()
-    const element = e.target;
-    if(element.classList.contains("palet-color")) chancheColor(element);
-    if(element.classList.contains("createboard__exit")) closeForm();
-    if(element.classList.contains("createboard__submit")) sendForm();
+  e.preventDefault();
+  const element = e.target;
+  if (element.classList.contains("palet-color")) chancheColor(element);
+  if (element.classList.contains("createboard__exit")) closeForm();
+  if (element.classList.contains("createboard__submit")) sendForm();
 }
 
 function chancheColor(element) {
-    const classColor = ["board-blue", "board-orange", "board-green", "board-red", "board-purple", "board-pink", "board-lime", "board-sky","board-grey"]
-    const form = document.querySelector(".createboard__titlecontainer");
-    const color = element.dataset.color
-    form.classList.remove(...classColor);
-    form.classList.add(`board-${color}`)
-    form.dataset.color = color;
+  const classColor = [
+    "board-blue",
+    "board-orange",
+    "board-green",
+    "board-red",
+    "board-purple",
+    "board-pink",
+    "board-lime",
+    "board-sky",
+    "board-grey",
+  ];
+  const form = document.querySelector(".createboard__titlecontainer");
+  const color = element.dataset.color;
+  form.classList.remove(...classColor);
+  form.classList.add(`board-${color}`);
+  form.dataset.color = color;
 }
 
 function closeForm() {
-    document.querySelector(".blackcontainer").remove()
+  document.querySelector(".blackcontainer").remove();
 }
 
 async function sendForm() {
-    const form = document.querySelector(".createboard__titlecontainer");
-    const name = form.children[0].value;
-    const color = form.dataset.color;
-    const board = new Board(name, color, false, false);
-    closeForm();
-    await board.create();
+  const form = document.querySelector(".createboard__titlecontainer");
+  const name = form.children[0].value;
+  const color = form.dataset.color;
+  const board = new Board(name, color, false, false);
+  closeForm();
+  await board.create();
 }
