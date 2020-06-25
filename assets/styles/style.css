@@ -1,17 +1,32 @@
 @import url("./robert/forms.css");
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-body *{
-    font-family: 'Roboto', sans-serif;
+body * {
+  font-family: "Roboto", sans-serif;
 }
-body{
-    min-height: 90vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+body {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.fixed-nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  min-height: 40px;
+  padding: 8px 0;
+  background: #58595a;
+}
+#sign-out {
+  position: absolute;
+  right: 20px;
 }
