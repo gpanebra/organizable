@@ -1,5 +1,4 @@
 import { login, signout, createUser } from "./robert/sessions.js";
-import { show } from "./robert/profiles.js";
 
 const loginBtn = document.querySelector("#login-btn");
 const createBtn = document.querySelector("#create-btn");
