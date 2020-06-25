@@ -1,4 +1,5 @@
-import { user } from "./main.js";
+import { show } from "./profiles.js";
+
 async function createUser() {
   let username = document.querySelector("#username").value;
   let password = document.querySelector("#password").value;
@@ -24,11 +25,12 @@ async function login() {
   let user = {
     username: username,
     password: password,
-    token: "",
   };
-  let login = await validatelogin("login", user);
-  user.token = login.token;
-  return localStorage.setItem("user", JSON.stringify(user));
+  let login = await post("login", user);
+  user = login;
+  console.log(login);
+  localStorage.setItem("user", JSON.stringify(user));
+  show(user);
 }
 
 async function signout() {
