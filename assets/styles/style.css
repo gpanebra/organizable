@@ -31,3 +31,6 @@ body {
   position: absolute;
   right: 20px;
 }
+.form-container {
+  max-width: 412px;
+}
