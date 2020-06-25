@@ -17,20 +17,26 @@ async function createUser() {
     },
   };
   console.log(newUser);
-  return post("users", newUser);
+  let signup = await post("users", newUser);
+  show(signup);
 }
 async function login() {
-  let username = document.querySelector("#username").value;
-  let password = document.querySelector("#password").value;
+  let username = document.querySelector("#username");
+  let password = document.querySelector("#password");
   let user = {
-    username: username,
-    password: password,
+    username: username.value,
+    password: password.value,
   };
   let login = await post("login", user);
   user = login;
-  console.log(login);
-  localStorage.setItem("user", JSON.stringify(user));
-  show(user);
+  if (user.errors) {
+    username.value = "";
+    password.value = "";
+    return alert("Acces denied, please try again");
+  } else {
+    localStorage.setItem("user", JSON.stringify(user));
+    show(user);
+  }
 }
 
 async function signout() {
