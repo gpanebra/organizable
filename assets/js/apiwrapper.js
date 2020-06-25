@@ -67,9 +67,9 @@ export default class Board {
         });
     }
 
-    destroy(){
+    destroy(id){
         return new Promise(async (resolve, reject) => {
-            const data = await fetchToServer("DELETE", null, this.id)
+            const data = await fetchToServer("DELETE", null, this.id || id) 
             if (data.status !== 204) {
                 reject(data);
             }
