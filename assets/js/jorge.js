@@ -1,11 +1,12 @@
 import Board from "./apiwrapper.js";
+import { drawBoard } from "./gustavo.js";
 
 export function createBoard() {
   //creamos elementos
   const formContainer = createDivBlack();
   const form = createForm();
-  formContainer.append(form);
-  document.querySelector("body").append(formContainer);
+  formContainer.prepend(form);
+  document.querySelector(".my-boards-wrapper").append(formContainer);
 }
 
 function createDivBlack() {
@@ -76,5 +77,7 @@ async function sendForm() {
   const color = form.dataset.color;
   const board = new Board(name, color, false, false);
   closeForm();
-  await board.create();
+  let otherBoard = await board.create();
+  let drawOtherBoard = drawBoard(otherBoard);
+  document.querySelector("#normal-boards").prepend(drawOtherBoard);
 }

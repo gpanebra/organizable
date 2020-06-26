@@ -219,3 +219,12 @@ header {
   height: 94vh;
   width: 860px;
 }
+
+.star{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.star-icon{
+  fill: #F0F2F5;
+}
