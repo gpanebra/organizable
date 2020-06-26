@@ -60,11 +60,20 @@ function closeForm() {
     document.querySelector(".blackcontainer").remove()
 }
 
-async function sendForm() {
+function sendForm() {
     const form = document.querySelector(".createboard__titlecontainer");
     const name = form.children[0].value;
     const color = form.dataset.color;
     const board = new Board(name, color, false, false);
     closeForm();
-    await board.create();
+    board.create()
+        .then(data => console.log(data))
+        .catch(error => {window.location.href = "my-boards.html"});
+}
+
+async function editBoard(){
+    asdkjaskld
+    sldkjaskldj
+
+    await board.update();
 }
