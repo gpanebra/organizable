@@ -55,7 +55,7 @@ header {
 }
 .boards-container {
   height: 90vh;
-  width: 602px;  
+  width: 602px;
 }
 .boards-container-title {
   display: flex;
@@ -85,6 +85,9 @@ header {
   height: 96px;
   border-radius: 3px;
   background-color: #4bbf6b;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
 }
 .board-title {
   font-family: Roboto;
@@ -105,6 +108,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .board-creator-title {
@@ -160,7 +164,7 @@ header {
   font-weight: bold;
   font-size: 16px;
   line-height: 24px;
-  color:#172B4D;
+  color: #172b4d;
 }
 .actions {
   height: fit-content;
@@ -220,11 +224,65 @@ header {
   width: 860px;
 }
 
-.star{
+.board-buttons {
+  position: absolute;
+  margin-top: 70px;
+  margin-left: 140px;
+}
+
+#normal-boards .board-buttons {
+  display: none;
+  margin-left: 130px;
+}
+#closed-boards .board-buttons {
+  display: none; 
+}
+
+#normal-boards .board:hover > .board-buttons {
+  display: flex;
+}
+#closed-boards .board:hover > .board-buttons {
+  display: flex;
+}
+
+.star {
   background-color: transparent;
   border: none;
   cursor: pointer;
+  outline: none;
 }
-.star-icon{
-  fill: #F0F2F5;
+.close {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+#closed-boards .close {
+  width: 20px;
+  height: 16px;
+}
+.star-icon {
+  fill: #f0f2f5;
+}
+
+#starred-boards .close {
+  display: none;
+}
+
+#starred-boards .star {
+  margin-left: 20px;
+}
+
+#starred-boards .star-icon {
+  fill: #c3be0e;
+}
+
+#closed-boards .star {
+  display: none;
+}
+#closed-boards .close-icon {
+  display: none;
+}
+#normal-boards .recover-icon {
+  display: none;
 }
