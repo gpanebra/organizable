@@ -1,4 +1,3 @@
-@import url("./gustavo/my-boards.css");
 @import url("./robert/forms.css");
 @import url("./jorge/jorge.css");
 * {
@@ -30,7 +29,4 @@ body {
 #sign-out {
   position: absolute;
   right: 20px;
-}
-.form-container {
-  max-width: 412px;
 }

@@ -1,6 +1,5 @@
 const URLSERVER = "http://localhost:3000/boards";
 const TOKEN = getUserToLocalStorage().token;
-
 async function fetchToServer(method,body,id){
     return new Promise(async (resolve, reject) => {
         const configFetch = {
@@ -158,8 +157,9 @@ export function createCardList(listId, body) {
         resolve(data);
     });
 }
-
 function getUserToLocalStorage() {
-    //return localStorage.getItem('user')
-    return {user: "newUser", token: "wuGduaBo6Uxsj3pCosg271MG"}
+  //return localStorage.getItem('user')
+  let user = JSON.parse(localStorage.getItem("user")).username;
+  let token = JSON.parse(localStorage.getItem("user")).token;
+  return { user: user, token: token };
 }

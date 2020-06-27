@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/styles/gustavo/my-boards.css" />  
+    <title>Organizable</title>
+  </head>
+  <body>
+    <header>
+      <img src="/assets/images/logo.svg" alt="" />
+    </header>
+    <div class="my-boards-wrapper">
+      <main>
+
+        <div class="sidebar">
+          <a href="my-boards.html">My boards</a>
+          <a href="closed-boards.html">Closed Boards</a>
+          <a class="marked unhoverable"> My Profile </a>
+          <a>Log Out </a>
+        </div>
+        <div class="form-wrapper">
+            <div class="form-container">
+                <div class="form">
+                  <div class="form-field">
+                    <label for="username">Username</label>
+                    <input required type="text" name="username" id="username" />
+                  </div>
+      
+                  <div class="form-field">
+                    <label for="email">Email</label>
+                    <input required type="email" name="email" id="email" />
+                  </div>
+                  <div class="form-field">
+                    <label for="first-name">First name</label>
+                    <input required type="text" name="first-name" id="first-name" />
+                  </div>
+                  <div class="form-field">
+                    <label for="last-name">Last name</label>
+                    <input required type="text" name="last-name" id="last-name" />
+                  </div>
+                  <div class="profile-actions">
+                    <button class="edit" id="edit-btn">Edit</button>
+                    <button class="delete" id="delete-btn">Delete</button>
+                  </div>
+                </div>
+              </div>
+        </div>        
+        <script type="module" src="/assets/js/gustavo.js"></script>
+      </main>
+    </div>
+  </body>
+</html>
