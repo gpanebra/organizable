@@ -94,5 +94,5 @@ function getUserToLocalStorage() {
   //return localStorage.getItem('user')
   let user = JSON.parse(localStorage.getItem("user")).username;
   let token = JSON.parse(localStorage.getItem("user")).token;
-  return { user: user, token: "TMy7zWxxh2JzDbDa6EunxWLQ" };
+  return { user: user, token: token };
 }
